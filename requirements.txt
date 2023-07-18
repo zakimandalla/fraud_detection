@@ -1,7 +1,6 @@
---upgrade pip
 streamlit
 numpy
 pandas
-scikit-learn
+scikit-learn==1.0.2
 torch
 datetime
