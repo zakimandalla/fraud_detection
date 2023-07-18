@@ -1,5 +1,7 @@
 streamlit
 numpy
+pandas
+sklearn
 pickle
 torch
 datetime
