@@ -15,10 +15,7 @@ st.write('''This model has some values below:
     3. Precission : 
     4. F1-Score : ''')
 
-#import data
-df = pd.read_csv('data/dataUser.csv', parse_dates=['dob'])
 
-st.dataframe(df)
 
 #interface
 cc = st.text_input("Credit card number: ") #cc_num
@@ -35,6 +32,7 @@ month = hour = pop = age = cek = 0
 
 cek_cc = st.button("Check")
 if cek_cc:
+    df = pd.read_csv('https://drive.google.com/u/4/uc?id=1pAsuE9kKim-UbUCJEl-9DZJRJm6hviRm&export=download', parse_dates=['dob']) #, parse_dates=['dob']
     cc = int(cc)
     for i in range(len(df)):
         if cc == df['cc_num'][i]:
@@ -74,8 +72,6 @@ if deteksi:
     database = pd.read_csv('data/database.csv')
     if test['cc_num'][0]==0:
         test['predict'] = 'Error'
-        #database = pd.concat([database, test])
-        #database.to_csv('G:/Coding/Skripsi/dataset/database.csv', index=False)
         st.success('Transaksi Error')
         st.table(test)
         
@@ -117,6 +113,6 @@ if deteksi:
             predict = 'Transaksi Error'
 
         database = pd.concat([database, test])
-        database.to_csv('G:/Coding/Skripsi/dataset/database.csv', index=False)
+        database.to_csv('data/database.csv', index=False)
         st.success(predict)
         st.table(test)
