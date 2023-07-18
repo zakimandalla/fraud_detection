@@ -8,14 +8,28 @@ import datetime
 from datetime import date, time
 
 st.title('Credit Card Transaction Checking')
-st.write('''This model has some values below: 
-            
-    1. Accuration : 
-    2. Recall : 
-    3. Precission : 
-    4. F1-Score : ''')
 
+desc_model, ccnum_list = st.columns(2)
 
+with desc_model:
+    st.markdown('''
+    **This model has some values below:** 
+
+    1. Accuracy : 99.85%
+    2. Recall : 90%
+    3. Precision : 91%
+    4. F1-Score : 90.15%
+    ''')
+
+with ccnum_list:
+    st.markdown('''
+    **Some of the credit card numbers registered:**
+    
+    3534093764340240, 2703186189652095, 
+    502049568400, 4477156602511930000, 
+    4277232699798840, 4497451418073890000, 
+    6544734391390260, 581686439828
+    ''')
 
 #interface
 cc = st.text_input("Credit card number: ") #cc_num
@@ -76,7 +90,7 @@ if deteksi:
         st.table(test)
         
     else:
-        loaded_model = pickle.load(open('tools/Prepocessor.sav', 'rb'))
+        loaded_model = pickle.load(open('tools/Preprocessor.sav', 'rb'))
         X_test = loaded_model.transform(test)
 
         X_test = torch.FloatTensor(X_test.toarray())
