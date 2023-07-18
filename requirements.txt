@@ -1,0 +1,5 @@
+streamlit
+numpy
+pickle
+torch
+datetime
